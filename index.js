@@ -70,7 +70,7 @@ function customHashedUrl(cssdir, imgurl, filepath, customHash) {
 			imgFileName = path.basename(imgFilePath),
 			file = fs.readFileSync(imgFilePath),
 			hash = crypto.createHash('md5').update(file).digest('hex');
-		return imgurl.replace(imgFileName, customHash(imgFileName, hash));
+		return imgurl.replace(imgFileName, customHash(imgFileName, hash, imgFilePath));
 	}catch(e){
 		console.warn(e);
 		console.log('Please try again -_- !')
